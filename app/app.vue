@@ -18,7 +18,7 @@ useHead({
 });
 
 useSeoMeta({
-  titleTemplate: "%s - Nuxt Portfolio Template",
+  titleTemplate: "%s - Ayoazeez26 Portfolio",
   ogImage: "/og-hero-image.png",
   twitterImage: "/og-hero-image.png",
   twitterCard: "summary_large_image",
