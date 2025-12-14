@@ -1,0 +1,7 @@
+title: HSCT
+description: Led a 2-man team to develop the web application that lets users find healthcare tenders and apply for them. Implemented eligibility checks to inform users if they are eligible to apply for a tender.
+image: /hero/hsct.webp
+url: "https://healthandsocialcaretenders.co.uk/"
+tags: ["Fronted Dev", "Nuxt"]
+date: "2024"
+featured: true
