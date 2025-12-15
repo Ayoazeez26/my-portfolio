@@ -1,0 +1,7 @@
+title: AnimeNaija
+description: Built a ticketing system for AnimeNaija. The system allows users to buy tickets for AnimeNaija events. Integrated with Paystack for payment processing.
+image: /hero/animenaija.webp
+url: "https://www.animenaija.com/"
+tags: ["Fronted Dev", "Vue", "Paystack"]
+date: "2025"
+featured: true
