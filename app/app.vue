@@ -19,8 +19,8 @@ useHead({
 
 useSeoMeta({
   titleTemplate: "%s - Ayoazeez26 Portfolio",
-  // ogImage: "https://my-hakeem-portfolio.vercel.app/og-hero-image.png",
-  // twitterImage: "https://my-hakeem-portfolio.vercel.app/og-hero-image.png",
+  ogImage: "https://my-hakeem-portfolio.vercel.app/og-hero-image.png",
+  twitterImage: "https://my-hakeem-portfolio.vercel.app/og-hero-image.png",
   twitterCard: "summary_large_image",
 });
 
