@@ -127,7 +127,7 @@ const { data: projects } = await useAsyncData("landing-projects", () => {
     </div>
 
     <div class="my-8 flex justify-center">
-      <UButton to="#" color="primary" variant="outline" size="lg">
+      <UButton to="/projects" color="primary" variant="outline" size="lg">
         View All Projects
         <template #trailing>
           <UIcon name="i-lucide-arrow-right" class="size-4" />

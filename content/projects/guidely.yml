@@ -1,0 +1,7 @@
+title: Guidely
+description: Built the website for Guidely, an AI education platform that makes complex AI concepts accessible to everyone. The platform provides clear, approachable guides and video content that help designers, students, marketers, and engineers understand and grow with AI.
+image: /hero/guidely.webp
+url: "https://guidely.tech/"
+tags: ["Fronted Dev", "Nuxt"]
+date: "2025"
+featured: true

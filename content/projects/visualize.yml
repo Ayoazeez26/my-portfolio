@@ -4,4 +4,3 @@ image: /hero/visualizer.webp
 url: "https://audio-visualizer-app.vercel.app/"
 tags: ["Fronted Dev", "Nuxt"]
 date: "2022 - 2023"
-featured: true
