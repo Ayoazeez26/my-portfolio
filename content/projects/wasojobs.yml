@@ -1,0 +1,6 @@
+title: WasoJobs
+description: Developed the web interface for a service listing platform, focused on creating and managing job listings, and handling payouts for jobs completed.
+image: /hero/wasojobs.webp
+url: "https://mywasojobs.com/"
+tags: ["Fronted Dev", "Nuxt"]
+date: "2023"

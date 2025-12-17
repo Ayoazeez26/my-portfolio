@@ -86,6 +86,7 @@ useSeoMeta({
           <template #footer>
             <ULink
               :to="project.url"
+              target="_blank"
               class="text-sm text-primary flex items-center"
             >
               View Project

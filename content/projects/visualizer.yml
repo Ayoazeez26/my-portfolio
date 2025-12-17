@@ -1,6 +1,7 @@
-title: WasoJobs
-description: Developed the web interface for a service listing platform, focused on creating and managing job listings, and handling payouts for jobs completed.
-image: /hero/wasojobs.webp
-url: "https://mywasojobs.com/"
-tags: ["Fronted Dev", "Nuxt"]
-date: "2023"
+title: Audio Visualizer
+description: Built a Vue.js audio visualizer application that allows users to upload audio files or select pre-existing tracks and visualize them in real-time. Features include audio playback controls, equalizer adjustments (bass, mid, treble), and spectrum visualization with a modern dark purple gradient UI.
+image: /hero/audio-visualizer.webp
+url: "https://audio-visualizer-app.vercel.app/"
+tags: ["Frontend Dev", "Vue"]
+date: "2025"
+featured: true

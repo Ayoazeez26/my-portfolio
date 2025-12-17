@@ -1,0 +1,8 @@
+title: Unsplash Clone
+description: Built a clone of Unsplash, a photo discovery and sharing platform. The application features a search functionality to find photos, displays a grid of curated images with photographer attribution, and provides a clean, modern interface for browsing high-quality photography.
+image: /hero/unsplash-clone.webp
+url: "https://unsplash-clone-bay.vercel.app/"
+tags: ["Frontend Dev", "Vue"]
+date: "2024"
+featured: true
+

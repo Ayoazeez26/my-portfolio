@@ -1,0 +1,7 @@
+title: Novus MFB
+description: Built the website for Novus Microfinance Bank, a financial institution offering comprehensive banking services including personal banking, business banking, and specialized products for HNIs. The platform features internet banking, mobile apps, USSD banking, and convenient payment services accessible 24/7.
+image: /hero/novusmfb.webp
+url: "https://novusmfb.com/"
+tags: ["Frontend Dev", "Nuxt"]
+date: "2024"
+featured: true

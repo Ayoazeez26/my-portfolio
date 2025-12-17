@@ -7,14 +7,14 @@ description: >
 content: |
   Hi, I’m **Abdulhakeem Abdulazeez**, a frontend-focused full-stack developer based in Nigeria.
   Over the past several years, I’ve worked on building modern web applications that balance
-  performance, clarity, and real-world usability, products that don’t just work, but feel good to use.
+  performance, clarity, and real-world usability, products that don’t just work, but feel good to use.<br/><br/>
 
   I studied **Mechanical Engineering at a federal university in Nigeria**, where I developed a strong
   foundation in analytical thinking, problem-solving, and systems design. That background strongly
   influences how I approach software development today, breaking down complex problems, thinking in
   systems, and building solutions that are both efficient and reliable. Over time, I transitioned
   fully into software development, where I found the perfect intersection of logic, creativity,
-  and user experience.
+  and user experience.<br/><br/>
 
   Today, I primarily work with **Vue.js, Nuxt.js, TypeScript, and TailwindCSS**, while also building
   and integrating full-stack solutions using tools like **Next.js, NestJS, PostgreSQL, Redis**, and
@@ -26,7 +26,7 @@ content: |
   My development process is driven by **clarity, empathy, and maintainability**. I start by
   understanding the problem deeply, what the user is trying to achieve and where friction exists,
   before writing a single line of code. From there, I focus on building scalable, well-structured
-  solutions that are easy to extend and reason about.
+  solutions that are easy to extend and reason about.<br/><br/>
 
   I care a lot about **pixel-perfect execution**, accessibility, and performance. Whether I'm
   implementing responsive layouts, handling complex state, integrating APIs, or working on i18n
@@ -38,7 +38,7 @@ content: |
   I'm motivated by the challenge of turning complex requirements into clean, intuitive interfaces.
   I enjoy learning new tools, refining my opinions about frontend architecture, and improving how
   products are built, not just how they look. Seeing users interact smoothly with something I helped
-  create is what keeps me excited about this work.
+  create is what keeps me excited about this work.<br/><br/>
 
   I'm also interested in mentorship, documentation, and sharing lessons learned through content,
   especially around modern frontend development and real-world project experience.
@@ -47,7 +47,7 @@ content: |
 
   Outside of work, I enjoy playing football with friends, gaming (FIFA and Call of Duty), reading,
   and unwinding on TikTok or Instagram. These breaks help me recharge and come back to problem-solving
-  with a fresh perspective.
+  with a fresh perspective.<br/><br/>
 
   Thanks for stopping by. Feel free to explore my [projects](/projects) or
   [get in touch](/#contact) if you'd like to collaborate or just talk tech.

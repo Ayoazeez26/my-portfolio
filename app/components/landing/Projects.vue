@@ -105,6 +105,7 @@ const { data: projects } = await useAsyncData("landing-projects", () => {
               </div>
               <ULink
                 :to="project.url"
+                target="_blank"
                 class="text-sm text-primary flex items-center gap-2 group-hover:gap-3 transition-all w-fit"
               >
                 View Project
