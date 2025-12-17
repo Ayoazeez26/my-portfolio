@@ -4,5 +4,4 @@ image: /hero/vue-hangman.webp
 url: "https://vue-hangman.vercel.app/"
 tags: ["Frontend Dev", "Vue"]
 date: "2021"
-featured: true
 category: "Hobby Projects"

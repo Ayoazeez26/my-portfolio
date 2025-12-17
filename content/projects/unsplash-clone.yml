@@ -4,6 +4,5 @@ image: /hero/unsplash-clone.webp
 url: "https://unsplash-clone-bay.vercel.app/"
 tags: ["Frontend Dev", "Vue"]
 date: "2024"
-featured: true
 category: "Hobby Projects"
 
