@@ -1,0 +1,8 @@
+title: Vue Hangman
+description: Built a Vue.js hangman game where players guess hidden words letter by letter. Features include score tracking, hint functionality, and a clean, interactive interface. Players can test their vocabulary skills while enjoying a classic word-guessing game experience.
+image: /hero/vue-hangman.webp
+url: "https://vue-hangman.vercel.app/"
+tags: ["Frontend Dev", "Vue"]
+date: "2021"
+featured: true
+category: "Hobby Projects"

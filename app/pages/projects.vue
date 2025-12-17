@@ -14,6 +14,29 @@ const { data: projects } = await useAsyncData('projects', () => {
   return queryCollection('projects').all()
 })
 
+const categories = ['Web Applications', 'Websites', 'Hobby Projects']
+
+const groupedProjects = computed(() => {
+  const grouped: Record<string, any[]> = {}
+  
+  categories.forEach(category => {
+    grouped[category] = projects.value?.filter(
+      project => project.category === category
+    ) || []
+  })
+  
+  // Add projects without category to a default section
+  const uncategorized = projects.value?.filter(
+    project => !project.category || !categories.includes(project.category)
+  ) || []
+  
+  if (uncategorized.length > 0) {
+    grouped['Other'] = uncategorized
+  }
+  
+  return grouped
+})
+
 const { global } = useAppConfig()
 
 useSeoMeta({
@@ -58,51 +81,58 @@ useSeoMeta({
         container: '!pt-0'
       }"
     >
-      <Motion
-        v-for="(project, index) in projects"
-        :key="project.title"
-        :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-        :transition="{ delay: 0.2 * index }"
-        :in-view-options="{ once: true }"
-      >
-        <UPageCard
-          :title="project.title"
-          :description="project.description"
-          :to="project.url"
-          orientation="horizontal"
-          variant="naked"
-          :reverse="index % 2 === 1"
-          class="group"
-          :ui="{
-            wrapper: 'max-sm:order-last'
-          }"
-        >
-          <template #leading>
-            <span class="text-sm text-muted">
-              {{ new Date(project.date).getFullYear() }}
-            </span>
-          </template>
-          <template #footer>
-            <ULink
-              :to="project.url"
-              target="_blank"
-              class="text-sm text-primary flex items-center"
+      <template v-for="(categoryProjects, category) in groupedProjects" :key="category">
+        <div v-if="categoryProjects.length > 0" class="mb-12 last:mb-0">
+          <h2 class="text-2xl font-bold mb-6">{{ category }}</h2>
+          <div class="space-y-8">
+            <Motion
+              v-for="(project, index) in categoryProjects"
+              :key="project.title"
+              :initial="{ opacity: 0, transform: 'translateY(10px)' }"
+              :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
+              :transition="{ delay: 0.2 * index }"
+              :in-view-options="{ once: true }"
             >
-              View Project
-              <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
-              />
-            </ULink>
-          </template>
-          <img
-            :src="project.image"
-            :alt="project.title"
-            class="object-cover w-full h-48 rounded-lg"
-          >
-        </UPageCard>
-      </Motion>
+              <UPageCard
+                :title="project.title"
+                :description="project.description"
+                :to="project.url"
+                orientation="horizontal"
+                variant="naked"
+                :reverse="index % 2 === 1"
+                class="group"
+                :ui="{
+                  wrapper: 'max-sm:order-last'
+                }"
+              >
+                <template #leading>
+                  <span class="text-sm text-muted">
+                    {{ new Date(project.date).getFullYear() }}
+                  </span>
+                </template>
+                <template #footer>
+                  <ULink
+                    :to="project.url"
+                    target="_blank"
+                    class="text-sm text-primary flex items-center"
+                  >
+                    View Project
+                    <UIcon
+                      name="i-lucide-arrow-right"
+                      class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                    />
+                  </ULink>
+                </template>
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="object-cover w-full h-48 rounded-lg"
+                >
+              </UPageCard>
+            </Motion>
+          </div>
+        </div>
+      </template>
     </UPageSection>
   </UPage>
 </template>
