@@ -15,10 +15,16 @@ export default defineEventHandler(async (event) => {
 
   // Cache the response for 5 minutes (300 seconds)
   const cacheKey = "testimonials";
-  const cached = await useStorage("cache").getItem(cacheKey);
 
-  if (cached) {
-    return cached;
+  // Allow bypassing cache with ?refresh=true query parameter
+  const query = getQuery(event);
+  const bypassCache = query.refresh === "true";
+
+  if (!bypassCache) {
+    const cached = await useStorage("cache").getItem(cacheKey);
+    if (cached) {
+      return cached;
+    }
   }
 
   try {
@@ -45,13 +51,36 @@ export default defineEventHandler(async (event) => {
     }>(url);
 
     if (!response.values || response.values.length === 0) {
+      console.log("No data found in Google Sheets");
+      console.log("API Response:", JSON.stringify(response, null, 2));
       return [];
     }
 
+    console.log(`Fetched ${response.values.length} rows from Google Sheets`);
+    console.log("Raw response sample (first row):", response.values[0]);
+
+    // Log each row for debugging
+    response.values.forEach((row, index) => {
+      console.log(`Row ${index + 2}:`, {
+        name: row[1] || "(empty)",
+        position: row[2] || "(empty)",
+        company: row[3] || "(empty)",
+        workingExperience: row[8]?.substring(0, 50) || "(empty)",
+        tangibleImpact: row[9]?.substring(0, 50) || "(empty)",
+        hasQuote: !!(row[8]?.trim() || row[9]?.trim()),
+      });
+    });
+
     // Transform Google Sheets data to testimonial format
     const testimonials = response.values
-      .filter((row) => row && row.length >= 2 && row[1]?.trim()) // At least have a name
-      .map((row) => {
+      .filter((row) => {
+        const hasName = row && row.length >= 2 && row[1]?.trim();
+        if (!hasName) {
+          console.log("Row filtered out: Missing name", row);
+        }
+        return hasName;
+      })
+      .map((row, index) => {
         // Map columns based on your form structure
         const timestamp = row[0] || ""; // Column A
         const name = row[1] || ""; // Column B: Your Full Name
@@ -82,6 +111,9 @@ export default defineEventHandler(async (event) => {
 
         // If no quote available, skip this testimonial
         if (!quote) {
+          console.log(
+            `Row ${index + 2} filtered out: No quote text. Name: ${name}, Working Experience: ${workingExperience?.substring(0, 30)}, Tangible Impact: ${tangibleImpact?.substring(0, 30)}`,
+          );
           return null;
         }
 
@@ -105,9 +137,14 @@ export default defineEventHandler(async (event) => {
           testimonial !== null && testimonial.quote.length > 0,
       ); // Only include testimonials with quotes
 
-    // Cache the results for 5 minutes
+    console.log(
+      `Processed ${testimonials.length} testimonials after filtering`,
+    );
+
+    // Cache the results for 5 minutes (or 1 minute in development)
+    const cacheTTL = process.env.NODE_ENV === "development" ? 60 : 300;
     await useStorage("cache").setItem(cacheKey, testimonials, {
-      ttl: 300, // 5 minutes in seconds
+      ttl: cacheTTL,
     });
 
     return testimonials;

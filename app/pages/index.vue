@@ -13,17 +13,29 @@ if (!page.value) {
 }
 
 // Fetch testimonials from Google Sheets API
-const { data: testimonials } = await useAsyncData("testimonials", async () => {
-  try {
-    const response =
-      await $fetch<Array<{ quote: string; author: any }>>("/api/testimonials");
-    return Array.isArray(response) ? response : [];
-  } catch (error) {
-    console.error("Error fetching testimonials:", error);
-    // Fallback to static testimonials from index.yml if API fails
-    return page.value?.testimonials || [];
-  }
-});
+// Use a unique key with timestamp to prevent stale cache
+const { data: testimonials, refresh: refreshTestimonials } = await useAsyncData(
+  "testimonials",
+  async () => {
+    try {
+      // Add refresh parameter to bypass server cache
+      const response = await $fetch<Array<{ quote: string; author: any }>>(
+        "/api/testimonials?refresh=true",
+      );
+      console.log("Fetched testimonials from API:", response?.length || 0);
+      return Array.isArray(response) ? response : [];
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+      // Fallback to static testimonials from index.yml if API fails
+      return page.value?.testimonials || [];
+    }
+  },
+  {
+    // Refresh on mount to get latest data
+    server: true,
+    default: () => [],
+  },
+);
 
 // Merge dynamic testimonials with page data
 const pageWithTestimonials = computed((): IndexCollectionItem | null => {
@@ -36,6 +48,11 @@ const pageWithTestimonials = computed((): IndexCollectionItem | null => {
       : Array.isArray(page.value.testimonials)
         ? page.value.testimonials
         : [];
+
+  // Debug logging
+  console.log("Testimonials from API:", testimonials.value?.length || 0);
+  console.log("Dynamic testimonials to display:", dynamicTestimonials.length);
+  console.log("Testimonials data:", dynamicTestimonials);
 
   return {
     ...page.value,

@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import type { IndexCollectionItem } from '@nuxt/content'
 
-defineProps<{
+const props = defineProps<{
   page: IndexCollectionItem
 }>()
+
+// Debug logging
+console.log('Testimonials component received:', props.page.testimonials?.length || 0, 'testimonials')
+console.log('Testimonials items:', props.page.testimonials)
 </script>
 
 <template>
