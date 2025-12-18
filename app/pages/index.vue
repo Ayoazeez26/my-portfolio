@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { IndexCollectionItem } from "@nuxt/content";
+
 const { data: page } = await useAsyncData("index", () => {
   return queryCollection("index").first();
 });
@@ -9,6 +11,37 @@ if (!page.value) {
     fatal: true,
   });
 }
+
+// Fetch testimonials from Google Sheets API
+const { data: testimonials } = await useAsyncData("testimonials", async () => {
+  try {
+    const response =
+      await $fetch<Array<{ quote: string; author: any }>>("/api/testimonials");
+    return Array.isArray(response) ? response : [];
+  } catch (error) {
+    console.error("Error fetching testimonials:", error);
+    // Fallback to static testimonials from index.yml if API fails
+    return page.value?.testimonials || [];
+  }
+});
+
+// Merge dynamic testimonials with page data
+const pageWithTestimonials = computed((): IndexCollectionItem | null => {
+  if (!page.value) return null;
+
+  // Ensure testimonials is always an array
+  const dynamicTestimonials =
+    Array.isArray(testimonials.value) && testimonials.value.length > 0
+      ? testimonials.value
+      : Array.isArray(page.value.testimonials)
+        ? page.value.testimonials
+        : [];
+
+  return {
+    ...page.value,
+    testimonials: dynamicTestimonials,
+  } as IndexCollectionItem;
+});
 
 useSeoMeta({
   title: page.value?.seo.title || page.value?.title,
@@ -31,7 +64,10 @@ useSeoMeta({
     </UPageSection>
     <LandingProjects :featured="true" />
     <!-- <LandingBlog :page /> -->
-    <!-- <LandingTestimonials :page /> -->
+    <LandingTestimonials
+      v-if="pageWithTestimonials"
+      :page="pageWithTestimonials"
+    />
     <!-- <LandingFAQ :page /> -->
   </UPage>
 </template>
