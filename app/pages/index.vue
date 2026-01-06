@@ -13,8 +13,9 @@ if (!page.value) {
 }
 
 // Fetch testimonials from Google Sheets API
-// Use a unique key with timestamp to prevent stale cache
-const { data: testimonials, refresh: refreshTestimonials } = await useAsyncData(
+// Fetch on client-side to ensure fresh data even if page is prerendered
+// This bypasses the prerender cache and always gets the latest testimonials
+const { data: testimonials } = await useAsyncData(
   "testimonials",
   async () => {
     try {
@@ -31,9 +32,10 @@ const { data: testimonials, refresh: refreshTestimonials } = await useAsyncData(
     }
   },
   {
-    // Refresh on mount to get latest data
-    server: true,
-    default: () => [],
+    // Fetch on client-side to ensure fresh data (bypasses prerender cache)
+    // This ensures testimonials are always up-to-date even on prerendered pages
+    server: false,
+    default: () => page.value?.testimonials || [],
   },
 );
 
