@@ -1,7 +1,7 @@
 title: WasoJobs
-description: Developed the web interface for a service listing platform, focused on creating and managing job listings, and handling payouts for jobs completed.
+description: Built a scalable job management dashboard in React/Next.js, integrating Flutterwave, Paystack, and Bank Transfer APIs for real-time payment processing. Reduced application load time by 20% and system downtime by 35% through code refactoring and infrastructure optimization.
 image: /hero/wasojobs.webp
 url: "https://mywasojobs.com/"
-tags: ["Fronted Dev", "Nuxt"]
+tags: ["Frontend Dev", "Next.js", "React.js"]
 date: "2023"
 category: "Web Applications"

@@ -6,15 +6,15 @@ description: "I build intuitive web applications that blend scalability and simp
 about:
   title: "About Me"
   description: |
-    As a Frontend Developer with over 5 years of experience, I specialize in building scalable, accessible web applications using Vue and Nuxt. My work combines strong technical execution with thoughtful collaboration, as I work closely with designers and backend engineers to deliver high-quality, user-focused products. I take pride in writing clean, efficient, and maintainable code, ensuring performance and usability are consistently top-notch.
+    As a Frontend Developer with over 5 years of experience, I specialize in building scalable, accessible web applications using Vue.js, Nuxt, React, and Next.js. My work combines strong technical execution with thoughtful collaboration, as I work closely with designers and backend engineers to deliver high-quality, user-focused products. I take pride in writing clean, efficient, and maintainable code, ensuring performance and usability are consistently top-notch.
 experience:
   title: Work Experience
   items:
-    - position: "Frontend Developer at"
-      date: "2023 - 2025"
+    - position: "Frontend Team Lead at"
+      date: "2023 - 2026"
       company:
         name: TGPC
-        url: "https://healthandsocialcaretenders.co.uk"
+        url: "https://tgpcng.com/"
         color: "#00DC82"
     - position: "Frontend Developer at"
       date: "2022 - 2023"
@@ -29,7 +29,7 @@ experience:
         url: "https://teckplusdigitalsolutions.netlify.app/"
         color: "#51A2FF"
     - position: "Frontend Developer at"
-      date: "2020 - 2021"
+      date: "2019"
       company:
         name: Paritie
         url: "https://paritie.com/"

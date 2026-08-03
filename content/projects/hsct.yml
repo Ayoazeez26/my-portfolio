@@ -1,8 +1,8 @@
 title: HSCT
-description: Led a 2-man team to develop the web application that lets users find healthcare tenders and apply for them. Implemented eligibility checks to inform users if they are eligible to apply for a tender.
+description: Owned frontend architecture for HSCT (hsct.ai), a virtual care office platform serving 500+ active users that helps care providers win tenders, stay compliant, and run day-to-day operations. Designed and shipped Olivia, an ambient voice assistant using text-to-speech and OpenAI for conversational onboarding and incident reporting, and implemented OAuth-based authentication across the Vue/Nuxt frontend and NestJS backend.
 image: /hero/hsct.webp
-url: "https://healthandsocialcaretenders.co.uk/"
-tags: ["Fronted Dev", "Nuxt"]
+url: "https://hsct.ai/"
+tags: ["Frontend Dev", "Vue.js", "Nuxt 3", "NestJS", "AWS", "OpenAI"]
 date: "2024"
 featured: true
 category: "Web Applications"
